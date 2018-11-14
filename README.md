@@ -1,14 +1,12 @@
 
-####################################
-#   Instructions for Wizard Game   #
-####################################
+#   Instructions for Wizard Game 
 
-"""
-1. Build Game Loop
+
+## 1. Build Game Loop
 ======================
-Define functions and main
----------------------------
-"""
+
+### Define functions and main
+```
 def main():
 	pass
 
@@ -27,11 +25,11 @@ def game_loop():
 
 if __name__ = "__main__":
 	main()
+	
+```
+### Build main() and print_header() up
 
-"""
-# Build main() and print_header() up
-----------------------------------
-"""
+```
 def main():
 	print_header()
 	game_loop()
@@ -43,12 +41,12 @@ def print_header():
 	print("-------------------------")
 	print()
 
-"""
-2. Modeling with classes
-==========================
-Build game_loop()
--------------------
-"""
+```
+
+## 2. Modeling with classes
+
+### Build game_loop()
+```
 while True:
 
 	cmd = input("Do you [a]ttack, [r]unway, or [l]ook around? ")
@@ -61,10 +59,11 @@ while True:
 	else:
 		print("OK, exiting game...bye!")
 
-"""
-Create creatures list in game_loop()
--------------------------------------
-"""
+```
+
+### Create creatures list in game_loop()
+
+```
 
 	creatures = [
 
@@ -72,10 +71,9 @@ Create creatures list in game_loop()
 
 	hero = None
 
-"""
-Create actors.py class
------------------------
-"""
+```
+### Create actors.py class
+```
 
 class Wizard:
 	pass
@@ -85,14 +83,17 @@ class Creature:
 	pass
 
 
-"""
-Import actors and instantiate hero as a Wizard
-"""
+```
+
+### Import actors and instantiate hero as a Wizard
+```
 import Wizard
 
 	hero = actors.Wizard()
+```
 
-# But then change it up to make it more readable
+### But then change it up to make it more readable
+```
 from actors import Wizard, Creature
 
 	hero = Wizard()
@@ -105,11 +106,11 @@ from actors import Wizard, Creature
 		Creature()
 	]
 
-"""
-3. Initializing classes and creating objects
-==============================================
-Build Creature Object
-"""
+```
+
+## 3. Initializing classes and creating objects
+### Build Creature Object
+```
 
 # self is a pointer to itself
 class Creature:
@@ -128,10 +129,11 @@ class Wizard:
 	#def attack(self, other_creature):
 		#pass
 
-"""
-Create Creatures
-------------------
-"""
+```
+
+### Create Creatures
+
+```
 
 	creatures = [
 		Creature("Toad", 1),
@@ -146,10 +148,10 @@ Create Creatures
 
 	hero = Wizard("David", 75)
 
-"""
-Create repr dunder to print creature list Creature class
----------------------------------------------------------
-"""
+```
+
+### Create repr dunder to print creature list Creature class
+```
 
 	def __repr__(self):
 		return "Creature: {} of level {}".format(
@@ -157,12 +159,10 @@ Create repr dunder to print creature list Creature class
 			)
 
 
-"""
-4. Adding behaviors to the wizard
-================================
-Build game_loop logic in game_loop()
--------------------------------------
-"""
+```
+## 4. Adding behaviors to the wizard
+### Build game_loop logic in game_loop()
+```
 
 	# Create an active creature when you are exploring
 	active_creature = random.choice(creatures)
@@ -170,10 +170,9 @@ Build game_loop logic in game_loop()
 		.format(active_creature.name, active_creature.level))
 	print()
 
-"""
-Create attack logic
-----------------------
-"""
+```
+### Create attack logic
+```
 
 	# Build up Wizard class
 	def attack(self, creature):
@@ -219,12 +218,10 @@ Create attack logic
 		print("The wizard has become unsure of his power and flees!")
 
 
-"""
-5. Exploring specialized (derived) classes
-============================================
-Enhance the combat system and make it more diverse
-----------------------------------------------------
-"""
+```
+## 5. Exploring specialized (derived) classes
+### Enhance the combat system and make it more diverse
+```
 
 	# If no creatures are left, end game
 	if not creatures:
@@ -239,11 +236,9 @@ Enhance the combat system and make it more diverse
 	# Comment out creature roll and add the following line
 	creature_roll = creature.get_defensive_roll()
 
-
-"""
-Customize creatures in game_loop()
------------------------------------
-"""
+```
+### Customize creatures in game_loop()
+```
 
 	creatures = [
 		SmallAnimal("Toad", 1),
@@ -254,12 +249,10 @@ Customize creatures in game_loop()
 	]
 
 
-"""
-6. Creating the creature hierarchy
-====================================
-Make Wizard a subclass of Creature
------------------------------------
-"""
+```
+## 6. Creating the creature hierarchy
+### Make Wizard a subclass of Creature
+```
 
 class Wizard(Creature):
 	#def __init__(self, name, level):
@@ -310,10 +303,9 @@ class Dragon(Creature):
 		return base_roll * fire_modifier * scale_modifier
 
 
-"""
-Change Creatures with new features
-------------------------------------
-"""
+```
+### Change Creatures with new features
+```
 
 	creatures = [
 		SmallAnimal("Toad", 1)
@@ -322,3 +314,6 @@ Change Creatures with new features
 		Dragon("Dragon", 50, 75, True)
 		Wizard("Evil Wizard", 1000)
 	]
+```
+
+Credit to [Michael Kennedy](https://github.com/mikeckennedy)
